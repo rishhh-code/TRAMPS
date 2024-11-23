@@ -1,0 +1,181 @@
+/* General Reset for Box Model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styling for Background Image */
+body {
+    background-image: url('https://w0.peakpx.com/wallpaper/134/661/HD-wallpaper-anime-road-landscape.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header Styling */
+header {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    background: none; /* No background */
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+header .logo p {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif; /* Added semicolon here */
+    margin-top: 5px;
+}
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 25px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    background: none; /* Remove overlay */
+}
+
+.hero h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional text shadow for contrast */
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Roboto', sans-serif; /* Optional text shadow for contrast */
+}
+
+/* CTA Button */
+.cta-btn {
+    background-color: #8eb15c;
+    color: #ffffff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn:hover {
+    background-color: #72b619;
+    transform: translateY(-3px);
+}
+
+/* Features Section */
+.features {
+    background-color: #f9fafb;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #a0dd49;
+    font-weight: 600;
+}
+
+.features .feature-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.features .feature {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.features .feature:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.features .feature h3 {
+    font-size: 1.8rem;
+    color: #8eb15c;
+    margin-bottom: 20px;
+}
+
+.features .feature p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #c5d6b3;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-links {
+    margin: 20px 0;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #f0f0f0;
+}
+
+footer p {
+    font-size: 1rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}

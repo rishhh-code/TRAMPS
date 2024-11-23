@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="signup.css" type="text/css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="signup-box">
+            <h2>Welcome to Tramps</h2>
+            <form action="">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your Name" class="input-field" pattern="[A-Za-z]+" required>
+
+                <label for="number">Phone Number</label>
+                <input type="text" name="number" id="number" placeholder="Enter your Phone Number" class="input-field" pattern="[0-9]{10}" maxlength="10" minlength="10" required>
+
+                <div class="password-container">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="show-password" onclick="togglePasswordVisibility('password')">👁️</span>
+                </div>
+
+                <div class="password-container">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <span class="show-password" onclick="togglePasswordVisibility('confirm-password')">👁️</span>
+                </div>
+
+                <label for="district">Select your District</label>
+                <select id="district" name="district" onchange="updateBlocks()" required>
+                    <option value="" disabled selected>Select your district</option>
+                    <option value="district1">District 1</option>
+                    <option value="district2">District 2</option>
+                    <option value="district3">District 3</option>
+                    <option value="district4">District 4</option>
+                </select>
+
+                <label for="block">Select your Block</label>
+                <select id="block" name="block" onchange="updateVillages()" required>
+                    <option value="" disabled selected>Select a block</option>
+                </select>
+
+                <label for="village">Select your Revenue Village</label>
+                <select id="village" name="village" onchange="updateSurveyNumbers()" required>
+                    <option value="" disabled selected>Select a village</option>
+                </select>
+
+                <label for="survey-number">Select your Survey Number</label>
+                <select id="survey-number" name="survey-number" onchange="updateLandOwners()" required>
+                    <option value="" disabled selected>Select a survey number</option>
+                </select>
+
+                <label for="land-owner">Select Land Owner Name</label>
+                <select id="land-owner" name="land-owner" required>
+                    <option value="" disabled selected>Select a land owner</option>
+                </select>
+
+                <button type="submit" class="submit-btn" formaction="file:///E:/Hackathon%20TRAMPS/TRAMPS/FrontEnd/AfterLogin.html">Sign-up</button>
+            </form>
+
+            <p>Already Have an Account? 
+                <a href="E:\Hackathon TRAMPS\TRAMPS\FrontEnd\Login.html" class="login-link">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            "district1": {
+                "block1": {
+                    "village1": ["Survey1", "Survey2"],
+                    "village2": ["Survey3", "Survey4"]
+                },
+                "block2": {
+                    "village3": ["Survey5", "Survey6"],
+                    "village4": ["Survey7", "Survey8"]
+                }
+            },
+            "district2": {
+                "block3": {
+                    "village5": ["Survey9", "Survey10"],
+                    "village6": ["Survey11", "Survey12"]
+                },
+                "block4": {
+                    "village7": ["Survey13", "Survey14"],
+                    "village8": ["Survey15", "Survey16"]
+                }
+            }
+        };
+
+        const landOwners = {
+            "Survey1": ["Owner1", "Owner2"],
+            "Survey2": ["Owner3", "Owner4"],
+            "Survey3": ["Owner5", "Owner6"],
+            "Survey4": ["Owner7", "Owner8"]
+        };
+
+        function updateBlocks() {
+            const district = document.getElementById("district").value;
+            const blockDropdown = document.getElementById("block");
+            blockDropdown.innerHTML = '<option value="" disabled selected>Select a block</option>';
+            for (const block in data[district]) {
+                const option = document.createElement("option");
+                option.value = block;
+                option.text = block;
+                blockDropdown.add(option);
+            }
+        }
+
+        function updateVillages() {
+            const district = document.getElementById("district").value;
+            const block = document.getElementById("block").value;
+            const villageDropdown = document.getElementById("village");
+            villageDropdown.innerHTML = '<option value="" disabled selected>Select a village</option>';
+            for (const village in data[district][block]) {
+                const option = document.createElement("option");
+                option.value = village;
+                option.text = village;
+                villageDropdown.add(option);
+            }
+        }
+
+        function updateSurveyNumbers() {
+            const district = document.getElementById("district").value;
+            const block = document.getElementById("block").value;
+            const village = document.getElementById("village").value;
+            const surveyDropdown = document.getElementById("survey-number");
+            surveyDropdown.innerHTML = '<option value="" disabled selected>Select a survey number</option>';
+            data[district][block][village].forEach(survey => {
+                const option = document.createElement("option");
+                option.value = survey;
+                option.text = survey;
+                surveyDropdown.add(option);
+            });
+        }
+
+        function updateLandOwners() {
+            const survey = document.getElementById("survey-number").value;
+            const landOwnerDropdown = document.getElementById("land-owner");
+            landOwnerDropdown.innerHTML = '<option value="" disabled selected>Select a land owner</option>';
+            landOwners[survey].forEach(owner => {
+                const option = document.createElement("option");
+                option.value = owner;
+                option.text = owner;
+                landOwnerDropdown.add(option);
+            });
+        }
+
+        function togglePasswordVisibility(id) {
+            const passwordField = document.getElementById(id);
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>
